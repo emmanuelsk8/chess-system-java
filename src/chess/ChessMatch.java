@@ -23,6 +23,7 @@ public class ChessMatch {
 		}
 		return mat;
 	}
+	// Move a peça da posição de origem para a de destino
 	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
 		Position source = sourcePosition.toPosition();
 		Position target = targetPosition.toPosition();
@@ -30,14 +31,14 @@ public class ChessMatch {
 		Piece capturedPiece = makeMove(source, target);
 		return (ChessPiece) capturedPiece;
 	}
-	
+	// Move a peça da posição de origem para a de destino no tabuleiro
 	private Piece makeMove(Position source, Position target) {
 		Piece p = board.removePiece(source);
 		Piece capturedPiece = board.removePiece(target);
 		board.placePiece(p, target);
 		return capturedPiece;
 	}
-	
+	// Valida se a peça de origem existe
 	private void validateSourcePosition(Position position) {
 		if(!board.thereIsAPiece(position)) {
 			throw new ChessException("There is no piece on source position");
