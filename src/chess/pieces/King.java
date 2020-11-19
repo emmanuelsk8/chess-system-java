@@ -15,12 +15,12 @@ public class King extends ChessPiece {
 	public String toString() {
 		return "K";
 	}
-
+	// Verifica se posso mover a peça para uma determinada posição
 	private boolean canMove(Position position) {
 		ChessPiece p = (ChessPiece) getBoard().piece(position);
 		return p == null || p.getColor() != getColor();
 	}
-
+	// Determina quais movimentos a peça REI pode realizar no tabuleiro
 	@Override
 	public boolean[][] possibleMoves() {
 		boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
